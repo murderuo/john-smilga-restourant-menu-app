@@ -1,0 +1,58 @@
+@import url('./assets/css/bootstrap.css');
+@import url('./assets/fonts/stylesheet.css');
+
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #BDCDD6;
+}
+
+.ff-varela {
+  font-family: 'Varela Round Regular';
+  
+}
+
+.container-bg {
+  /* background-color: #93bfcf; */
+}
+
+.item-img {
+  width: 100%;
+  /* height: 200px; */
+  height: 150px;
+  object-fit: cover;
+}
+.img{
+  /* height: 200px; */
+  width: 45%;
+}
+
+.item-card {
+  width: 50%;
+}
+.border-bottom {
+  border-bottom: dotted !important;
+}
+.card-border-bottom {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.244);
+}
+
+.img-border {
+  border: 2px solid #58839c;
+}
+
+.btn{
+  background-color: #196372 !important;
+}
+
+@media (max-width: 991.98px) { 
+  .item-card{
+    width: 100% ;
+  }
+ }
