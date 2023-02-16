@@ -1,14 +1,14 @@
 import { Outlet } from 'react-router-dom';
 import Header from '../../Header';
 
-function RestourantLayout({ pageValues, setPageValue, basketState }) {
-  const [basket, setBasket] = basketState;
+function RestourantLayout({ pageValues, setPageValues }) {
+  // const [basket, setBasket] = basketState;
 
   return (
     <>
-      <Header menu={pageValues?.menu} basket={basket} />
+      <Header pageValues={pageValues}  />
       {/* <Outlet  pageValues={pageValues} setPageValue={setPageValue}/> */}
-      <Outlet context={{ pageValues, setPageValue, setBasket }} />
+      <Outlet context={{ pageValues, setPageValues }} />
     </>
   );
 }

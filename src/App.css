@@ -10,12 +10,11 @@
 }
 
 body {
-  background-color: #BDCDD6;
+  background-color: #bdcdd6;
 }
 
 .ff-varela {
   font-family: 'Varela Round Regular';
-  
 }
 
 .container-bg {
@@ -28,7 +27,7 @@ body {
   height: 150px;
   object-fit: cover;
 }
-.img{
+.img {
   /* height: 200px; */
   width: 45%;
 }
@@ -47,12 +46,35 @@ body {
   border: 2px solid #58839c;
 }
 
-.btn{
+.btn {
   background-color: #196372 !important;
 }
+.cancel-button {
+  padding: 5px;
+  border-radius: 4px;
+  background-color: red;
+  color: white;
+}
 
-@media (max-width: 991.98px) { 
-  .item-card{
-    width: 100% ;
+.basket-parent {
+  display: inline;
+  position: relative;
+}
+.basket-icon {
+  font-size: 15px;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  bottom:-5px;
+  right: 0;
+  background-color: red;
+  color: white;
+  font-weight: 800;
+  border-radius: 5px;
+}
+
+@media (max-width: 991.98px) {
+  .item-card {
+    width: 100%;
   }
- }
+}

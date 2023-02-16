@@ -1,8 +1,8 @@
 import { useOutletContext } from 'react-router-dom';
 
 function BreakFast() {
-  const { pageValues, setBasket } = useOutletContext();
-  console.log(pageValues);
+  const { pageValues,setPageValues } = useOutletContext();
+  console.log(pageValues.basket);
 
   return (
     <>
@@ -11,8 +11,9 @@ function BreakFast() {
           <div className="col-lg-12  d-flex flex-wrap">
             {pageValues.allMenuItems.map(item => {
               if (item?.category === 'breakfast') {
+                {/* console.log(pageValues.setBasket) */}
                 return (
-                  <div className="d-flex item-card  p-3 card-border-bottom ">
+                  <div className="d-flex item-card  p-3 card-border-bottom " key={item.id}>
                     <div className="img">
                       <img src={item.img} alt="" className="item-img rounded img-border" />
                     </div>
@@ -23,9 +24,13 @@ function BreakFast() {
                       </div>
                       <p className="fs-5">{item.desc.substring(0, 50)}...</p>
                       <div className="mt-auto align-self-end">
-                        <button className="btn btn-primary btn-sm align-self-end" onClick={()=>setBasket(prev => [...prev, item])}>
-                          add
-                        </button>
+                      <button
+                        className="btn btn-primary btn-sm align-self-end"
+                        onClick={() => setPageValues({ ...pageValues, basket: [...pageValues.basket, item] })}
+                        disabled={pageValues?.basket?.includes(item)}
+                      >
+                        {pageValues?.basket?.includes(item) ? 'Added' : 'Add Basket'}
+                      </button>
                       </div>
                     </div>
                   </div>

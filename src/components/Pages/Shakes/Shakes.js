@@ -1,7 +1,7 @@
 import { useOutletContext } from 'react-router-dom';
 
 function Shakes() {
-  const { pageValues } = useOutletContext();
+  const { pageValues, setPageValues } = useOutletContext();
   return (
     <>
       <div className="container">
@@ -21,7 +21,13 @@ function Shakes() {
                       </div>
                       <p className="fs-5">{item.desc.substring(0, 50)}...</p>
                       <div className="mt-auto align-self-end">
-                        <button className="btn btn-primary btn-sm align-self-end">add</button>
+                      <button
+                        className="btn btn-primary btn-sm align-self-end"
+                        onClick={() => setPageValues({ ...pageValues, basket: [...pageValues.basket, item] })}
+                        disabled={pageValues?.basket?.includes(item)}
+                      >
+                        {pageValues?.basket?.includes(item) ? 'Added' : 'Add Basket'}
+                      </button>
                       </div>
                     </div>
                   </div>

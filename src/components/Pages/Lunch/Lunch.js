@@ -1,10 +1,11 @@
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext } from 'react-router-dom';
 
 function Lunch() {
-  const { pageValues } = useOutletContext();
+  const { pageValues, setPageValues } = useOutletContext();
 
-
-  return <> <div className="container">
+  return (
+    <>
+      <div className="container">
         <div className="row">
           <div className="col-lg-12  d-flex flex-wrap">
             {pageValues.allMenuItems.map(item => {
@@ -21,7 +22,13 @@ function Lunch() {
                       </div>
                       <p className="fs-5">{item.desc.substring(0, 50)}...</p>
                       <div className="mt-auto align-self-end">
-                        <button className="btn btn-primary btn-sm align-self-end">add</button>
+                      <button
+                        className="btn btn-primary btn-sm align-self-end"
+                        onClick={() => setPageValues({ ...pageValues, basket: [...pageValues.basket, item] })}
+                        disabled={pageValues?.basket?.includes(item)}
+                      >
+                        {pageValues?.basket?.includes(item) ? 'Added' : 'Add Basket'}
+                      </button>
                       </div>
                     </div>
                   </div>
@@ -30,7 +37,9 @@ function Lunch() {
             })}
           </div>
         </div>
-      </div></>;
+      </div>
+    </>
+  );
 }
 
 export default Lunch;

@@ -1,15 +1,16 @@
 import { useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
+import { showCount } from '../../../utils/utils';
 // import allMenuItems from '../../../data/data';
 
 function Home() {
   //outlet componentde geçilen proplerı useOutletCOntext olarak alıyoruz
-  const { pageValues, setPageValue } = useOutletContext();
+  const { pageValues, setPageValues } = useOutletContext();
   console.log(pageValues);
 
   useEffect(() => {
     setTimeout(() => {
-      setPageValue({ ...pageValues, loading: false });
+      setPageValues({ ...pageValues, loading: false });
     }, 1000);
   }, []);
 
@@ -28,7 +29,7 @@ function Home() {
           <div className="row">
             <div className="col-lg-12  d-flex flex-wrap">
               {pageValues.allMenuItems.map(item => (
-                <div className="d-flex item-card  p-3 card-border-bottom ">
+                <div className="d-flex item-card  p-3 card-border-bottom "  key={item.id}>
                   <div className="img">
                     <img src={item.img} alt="" className="item-img rounded img-border" />
                   </div>
@@ -39,7 +40,15 @@ function Home() {
                     </div>
                     <p className="fs-5">{item.desc.substring(0, 50)}...</p>
                     <div className="mt-auto align-self-end">
-                      <button className="btn btn-primary btn-sm align-self-end">add</button>
+                    <span>{showCount(pageValues.basket,item)}</span>
+
+                      <button
+                        className="btn btn-primary btn-sm align-self-end"
+                        onClick={() => setPageValues({ ...pageValues, basket: [...pageValues.basket, item] })}
+                        // disabled={pageValues?.basket?.includes(item)}
+                      >
+                        {pageValues?.basket?.includes(item) ? 'Added' : 'Add Basket'}
+                      </button>
                     </div>
                   </div>
                 </div>
