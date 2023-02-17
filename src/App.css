@@ -36,7 +36,7 @@ body {
   width: 50%;
 }
 .border-bottom {
-  border-bottom: dotted !important;
+  border-bottom: 2px dotted !important;
 }
 .card-border-bottom {
   border-bottom: 1px solid rgba(0, 0, 0, 0.244);
@@ -57,7 +57,6 @@ body {
   color: white;
 }
 
-
 .basket-parent {
   display: inline;
   position: relative;
@@ -74,6 +73,14 @@ body {
   color: white;
   font-weight: 800;
   border-radius: 5px;
+}
+
+
+
+.detail-item-img {
+  width: 75%;
+  /* height: 200px; */
+  object-fit: cover;
 }
 
 @media (max-width: 991.98px) {

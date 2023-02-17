@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { useState } from 'react';
 import Home from '../Pages/Home';
 import BreakFast from '../Pages/BreakFast';
 import Lunch from '../Pages/Lunch';
@@ -7,12 +8,16 @@ import Korea from '../Pages/Korea';
 import Japan from '../Pages/Japan';
 import China from '../Pages/China';
 import Basket from '../Pages/Basket/';
-
 import RestourantLayout from '../Pages/Layout/RestourantLayout';
 import allMenuItems from '../../data/data';
-import { useState } from 'react';
 import MenuLayout from '../Pages/Layout/MenuLayout';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import BreakFastLayout from '../Pages/BreakFast/BreakfastLayout';
+import LunchLayout from '../Pages/Lunch/LunchLayout';
+import ShakesLayout from '../Pages/Shakes/ShakesLayout';
+import KoreaLayout from '../Pages/Korea/ShakesLayout';
+import JapanLayout from '../Pages/Japan/JapanLayout';
+import ChinaLayout from '../Pages/China/ChinaLayout';
 
 function MainRoutes() {
   // const [basket, setBasket] = useState([]);
@@ -30,14 +35,31 @@ function MainRoutes() {
           <Route path="menu" element={<MenuLayout />}>
             <Route index={true} element={<Home />} />
             <Route path="all" element={<Home />} />
-            <Route path="breakfast" element={<BreakFast />}>
-              <Route path="details" element={<ItemDetail />} />
+            <Route path="breakfast" element={<BreakFastLayout />}>
+              <Route index={true} element={<BreakFast />} />
+              <Route path=":title" element={<ItemDetail />} />
             </Route>
-            <Route path="lunch" element={<Lunch />} />
-            <Route path="shakes" element={<Shakes />} />
-            <Route path="Korea" element={<Korea />} />
-            <Route path="Japan" element={<Japan />} />
-            <Route path="China" element={<China />} />
+            <Route path="lunch" element={<LunchLayout />}>
+              <Route index={true} element={<Lunch />} />
+              <Route path=":title" element={<ItemDetail />} />
+            </Route>
+            <Route path="shakes" element={<ShakesLayout />}>
+              <Route index={true} element={<Shakes />} />
+              <Route path=":title" element={<ItemDetail />} />
+            </Route>
+            <Route path="Korea" element={<KoreaLayout />}>
+              <Route index={true} element={<Korea />} />
+              <Route path=":title" element={<ItemDetail />} />
+            </Route>
+            <Route path="Japan" element={<JapanLayout />}>
+              <Route index={true} element={<Japan />} />
+              <Route path=":title" element={<ItemDetail />} />
+            </Route>
+
+            <Route path="China" element={<ChinaLayout />}>
+              <Route index={true} element={<China />} />
+              <Route path=":title" element={<ItemDetail />} />
+            </Route>
             <Route path="basket" element={<Basket />} />
           </Route>
         </Route>

@@ -32,7 +32,7 @@ function Basket() {
                 <div className="d-flex flex-column ms-2 w-75 mt-2">
                   <div className="border-bottom d-flex justify-content-between ">
                     <h4 className="fs-5 ff-varela fw-bold m-0">{item.title.charAt(0).toUpperCase() + item.title.slice(1)}</h4>
-                    <h4 className="ff-varela fs-5 m-0">$ {showCount(pageValues.basket, item) * item.price}</h4>
+                    <h4 className="ff-varela fs-5 m-0">$ {(showCount(pageValues.basket, item) * item.price).toFixed(2)}</h4>
                   </div>
                   <p className="fs-5">{item.desc.substring(0, 50)}...</p>
                   <div className="mt-auto d-flex justify-content-end align-self-end">

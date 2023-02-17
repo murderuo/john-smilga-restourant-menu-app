@@ -16,15 +16,15 @@ function Header({ pageValues }) {
                 <div className="m-3 ff-varela ms-4 fs-4 btn text-light ">{item.charAt(0).toUpperCase() + item.slice(1)}</div>
               </Link>
             ))}
-            <div className="m-3 ff-varela fs-4 btn text-light d-flex align-items-center">
-              <Link to="menu/basket" className="text-decoration-none text-light">
+            <Link to="menu/basket" className="text-decoration-none text-light">
+              <div className="ff-varela fs-4 btn text-light d-flex align-items-center">
                 <span className="me-2">Basket</span>
                 <div className="basket-parent">
                   <div className="basket-icon d-flex align-items-center justify-content-center">{pageValues?.basket?.length}</div>
                   <BsBasket />
                 </div>
-              </Link>
-            </div>
+              </div>
+            </Link>
           </div>
         </div>
       </div>

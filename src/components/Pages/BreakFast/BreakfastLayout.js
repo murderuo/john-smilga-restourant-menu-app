@@ -1,14 +1,16 @@
-import {  Outlet, useOutletContext } from 'react-router-dom';
+import { Outlet, useOutletContext } from 'react-router-dom';
 import MenuItem from '../../MenuItem/MenuItem';
 
-function BreakFast() {
+function BreakFastLayout() {
   const { pageValues, setPageValues } = useOutletContext();
- 
+  console.log(pageValues);
+
 
   return (
 
     <>
-      <div className="container">
+    <Outlet context={{ pageValues, setPageValues }}/>
+      {/* <div className="container">
         <div className="row">
           <div className="col-lg-12  d-flex flex-wrap">
             {pageValues?.allMenuItems?.map(item => {
@@ -18,9 +20,9 @@ function BreakFast() {
             })}
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
 
-export default BreakFast;
+export default BreakFastLayout;
