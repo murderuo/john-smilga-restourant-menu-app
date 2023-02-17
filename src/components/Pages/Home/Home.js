@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import IncreaseDecreaseButtons from '../../AddBasket/AddBasket';
 import MenuItem from '../../MenuItem';
+import {PacmanLoader} from 'react-spinners'
+
 // import allMenuItems from '../../../data/data';
 
 function Home() {
@@ -21,7 +23,7 @@ function Home() {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <div className="text-center">Loading</div>
+              <div className="text-center"><PacmanLoader /></div>
             </div>
           </div>
         </div>
