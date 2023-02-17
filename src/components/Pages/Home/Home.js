@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
-import { showCount } from '../../../utils/utils';
+import IncreaseDecreaseButtons from '../../AddBasket/AddBasket';
 // import allMenuItems from '../../../data/data';
 
 function Home() {
@@ -11,7 +11,7 @@ function Home() {
   useEffect(() => {
     setTimeout(() => {
       setPageValues({ ...pageValues, loading: false });
-    }, 1000);
+    }, 600);
   }, []);
 
   return (
@@ -29,7 +29,7 @@ function Home() {
           <div className="row">
             <div className="col-lg-12  d-flex flex-wrap">
               {pageValues.allMenuItems.map(item => (
-                <div className="d-flex item-card  p-3 card-border-bottom "  key={item.id}>
+                <div className="d-flex item-card  p-3 card-border-bottom " key={item.id}>
                   <div className="img">
                     <img src={item.img} alt="" className="item-img rounded img-border" />
                   </div>
@@ -39,13 +39,12 @@ function Home() {
                       <h4 className="ff-varela fs-5 m-0">$ {item.price}</h4>
                     </div>
                     <p className="fs-5">{item.desc.substring(0, 50)}...</p>
-                    <div className="mt-auto align-self-end">
-                    <span>{showCount(pageValues.basket,item)}</span>
-
+                    <div className="mt-auto d-flex justify-content-end align-self-end">
+                      <IncreaseDecreaseButtons item={item} pageValues={pageValues} setPageValues={setPageValues} />
                       <button
-                        className="btn btn-primary btn-sm align-self-end"
+                        className="btn btn-primary btn-sm"
                         onClick={() => setPageValues({ ...pageValues, basket: [...pageValues.basket, item] })}
-                        // disabled={pageValues?.basket?.includes(item)}
+                        disabled={pageValues?.basket?.includes(item)}
                       >
                         {pageValues?.basket?.includes(item) ? 'Added' : 'Add Basket'}
                       </button>
