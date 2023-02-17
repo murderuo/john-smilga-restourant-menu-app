@@ -49,12 +49,14 @@ body {
 .btn {
   background-color: #196372 !important;
 }
-.cancel-button {
-  padding: 5px;
-  border-radius: 4px;
+.btn-sm-cancel {
+  padding: 0.2rem 0.25rem;
+  font-size: 0.875rem;
+  border-radius: 0.25rem;
   background-color: red;
   color: white;
 }
+
 
 .basket-parent {
   display: inline;
@@ -63,10 +65,11 @@ body {
 .basket-icon {
   font-size: 15px;
   position: absolute;
-  width: 15px;
-  height: 15px;
-  bottom:-5px;
-  right: 0;
+  padding: 2px;
+  width: 17px;
+  height: 17px;
+  bottom: -7px;
+  right: -5px;
   background-color: red;
   color: white;
   font-weight: 800;

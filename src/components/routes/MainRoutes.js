@@ -11,13 +11,15 @@ import Basket from '../Pages/Basket/';
 import RestourantLayout from '../Pages/Layout/RestourantLayout';
 import allMenuItems from '../../data/data';
 import { useState } from 'react';
+import MenuLayout from '../Pages/Layout/MenuLayout';
+import ItemDetail from '../ItemDetail/ItemDetail';
 
 function MainRoutes() {
   // const [basket, setBasket] = useState([]);
   const [pageValues, setPageValues] = useState({
     allMenuItems,
     loading: true,
-    menu: allMenuItems.reduce((acc, item) => (!acc.includes(item.category) ? [...acc, item.category] : [...acc]), ['all',]),
+    menu: allMenuItems.reduce((acc, item) => (!acc.includes(item.category) ? [...acc, item.category] : [...acc]), ['all']),
     basket: [],
   });
   return (
@@ -25,14 +27,19 @@ function MainRoutes() {
       <Routes>
         <Route path="/" element={<RestourantLayout pageValues={pageValues} setPageValues={setPageValues} />}>
           <Route index={true} element={<Home />} />
-          <Route path="all" element={<Navigate to="/" />} />
-          <Route path="breakfast" element={<BreakFast />} />
-          <Route path="lunch" element={<Lunch />} />
-          <Route path="shakes" element={<Shakes />} />
-          <Route path="Korea" element={<Korea />} />
-          <Route path="Japan" element={<Japan />} />
-          <Route path="China" element={<China />} />
-          <Route path="basket" element={<Basket />} />
+          <Route path="menu" element={<MenuLayout />}>
+            <Route index={true} element={<Home />} />
+            <Route path="all" element={<Home />} />
+            <Route path="breakfast" element={<BreakFast />}>
+              <Route path="details" element={<ItemDetail />} />
+            </Route>
+            <Route path="lunch" element={<Lunch />} />
+            <Route path="shakes" element={<Shakes />} />
+            <Route path="Korea" element={<Korea />} />
+            <Route path="Japan" element={<Japan />} />
+            <Route path="China" element={<China />} />
+            <Route path="basket" element={<Basket />} />
+          </Route>
         </Route>
       </Routes>
     </>

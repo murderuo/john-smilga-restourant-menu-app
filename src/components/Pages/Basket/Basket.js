@@ -37,7 +37,7 @@ function Basket() {
                   <p className="fs-5">{item.desc.substring(0, 50)}...</p>
                   <div className="mt-auto d-flex justify-content-end align-self-end">
                     <IncreaseDecreaseButtons item={item} pageValues={pageValues} setPageValues={setPageValues} />
-                    <button className="cancel-button btn-sm align-self-end" onClick={() => handleDeleteItem(item.id)}>
+                    <button className="btn-sm-cancel align-self-end" onClick={() => handleDeleteItem(item.id)}>
                       Delete
                     </button>
                   </div>
