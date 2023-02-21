@@ -1,5 +1,6 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
+import { adress } from '../../data/adress';
 import Home from '../Pages/Home';
 import BreakFast from '../Pages/BreakFast';
 import Lunch from '../Pages/Lunch';
@@ -8,6 +9,7 @@ import Korea from '../Pages/Korea';
 import Japan from '../Pages/Japan';
 import China from '../Pages/China';
 import Basket from '../Pages/Basket/';
+import Adress from '../Pages/AddAdress/';
 import RestourantLayout from '../Pages/Layout/RestourantLayout';
 import allMenuItems from '../../data/data';
 import MenuLayout from '../Pages/Layout/MenuLayout';
@@ -18,6 +20,7 @@ import ShakesLayout from '../Pages/Shakes/ShakesLayout';
 import KoreaLayout from '../Pages/Korea/ShakesLayout';
 import JapanLayout from '../Pages/Japan/JapanLayout';
 import ChinaLayout from '../Pages/China/ChinaLayout';
+import BasketLayout from '../Pages/Layout/BasketLayout';
 
 function MainRoutes() {
   // const [basket, setBasket] = useState([]);
@@ -26,6 +29,8 @@ function MainRoutes() {
     loading: true,
     menu: allMenuItems.reduce((acc, item) => (!acc.includes(item.category) ? [...acc, item.category] : [...acc]), ['all']),
     basket: [],
+    adress,
+    // uniqueBasketItems :[...new Set(this.basket)]
   });
   return (
     <>
@@ -55,12 +60,14 @@ function MainRoutes() {
               <Route index={true} element={<Japan />} />
               <Route path=":title" element={<ItemDetail />} />
             </Route>
-
             <Route path="China" element={<ChinaLayout />}>
               <Route index={true} element={<China />} />
               <Route path=":title" element={<ItemDetail />} />
             </Route>
-            <Route path="basket" element={<Basket />} />
+            <Route path="basket" element={<BasketLayout />}>
+              <Route index={true} element={<Basket />} />
+              <Route path="choose-adress" element={<Adress />} />
+            </Route>
           </Route>
         </Route>
       </Routes>

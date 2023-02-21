@@ -12,7 +12,7 @@ function China() {
           <div className="col-lg-12  d-flex flex-wrap">
             {pageValues.allMenuItems.map(item => {
               if (item?.category === 'China') {
-                return <MenuItem item={item} pageValues={pageValues} setPageValues={setPageValues} />;
+                return <MenuItem item={item} pageValues={pageValues} setPageValues={setPageValues} key={item.id} />;
               }
             })}
           </div>
