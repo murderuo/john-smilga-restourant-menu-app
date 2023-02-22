@@ -91,7 +91,7 @@ function Basket() {
                 </div>
                 <div className="col-12">
                   <div className="d-flex justify-content-center">
-                    <Link to={'choose-adress'} className="text-decoration-none mx-auto ff-varela fs-4 btn text-light ">
+                    <Link to={'#'} className="text-decoration-none mx-auto ff-varela fs-4 btn text-light ">
                       Complete An Order
                     </Link>
                   </div>

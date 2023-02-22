@@ -66,7 +66,7 @@ function MainRoutes() {
             </Route>
             <Route path="basket" element={<BasketLayout />}>
               <Route index={true} element={<Basket />} />
-              <Route path="choose-adress" element={<Adress />} />
+              {/* <Route path="choose-adress" element={<Adress />} /> */}
             </Route>
           </Route>
         </Route>
